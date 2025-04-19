@@ -60,7 +60,7 @@ dependencies {
 	testImplementation 'org.junit.jupiter:junit-jupiter:5.12.2'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	testImplementation "org.assertj:assertj-core:3.24.2"
-	testImplementation 'org.jboss.byteman:byteman:4.0.20'
+	testImplementation 'org.jboss.byteman:byteman:4.0.24'
 	testImplementation 'org.jboss.byteman:byteman-submit:4.0.20'
 	testImplementation 'org.jboss.byteman:byteman-install:4.0.20'
 }
