@@ -62,7 +62,7 @@ dependencies {
 	testImplementation "org.assertj:assertj-core:3.24.2"
 	testImplementation 'org.jboss.byteman:byteman:4.0.20'
 	testImplementation 'org.jboss.byteman:byteman-submit:4.0.20'
-	testImplementation 'org.jboss.byteman:byteman-install:4.0.20'
+	testImplementation 'org.jboss.byteman:byteman-install:4.0.24'
 }
 
 tasks.withType(AbstractArchiveTask) {
