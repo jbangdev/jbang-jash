@@ -217,8 +217,8 @@ testJavaVersions.each { version ->
 		testClassesDirs = sourceSets.test.output.classesDirs
 		classpath = sourceSets.test.runtimeClasspath
 
-		// Use JUnit 5
-	// useJUnitPlatform()
+		// Use JUnit Platform
+		useJUnitPlatform()
 
 		// Include IT tests
 		include '**/*IT.class'
@@ -227,7 +227,6 @@ testJavaVersions.each { version ->
 		// Add test logging
 		testLogging {
 			events "failed"
-			//showStandardStreams = true
 		}
 
 		// Inherit test diagnostics if enabled
@@ -260,10 +259,10 @@ testJavaVersions.each { version ->
 	}
 }
 
-// Create a task to run all test versions
+// Create a task that runs all Java version tests
 tasks.register('testAllJavaVersions') {
 	group = 'verification'
-	description = 'Runs tests on all supported Java versions'
+	description = 'Runs the test suite on all supported Java versions'
 	dependsOn testJavaVersions.collect { "testJava${it}" }
 }
 

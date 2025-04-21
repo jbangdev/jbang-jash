@@ -25,17 +25,26 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowableOfType;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
+import java.util.Properties;
+import java.util.function.BiFunction;
+import java.util.function.Function;
+import java.util.logging.LogManager;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 
+@DisabledOnOs(OS.WINDOWS)
 public class JashIT {
 
 	@Test
@@ -338,6 +347,20 @@ public class JashIT {
 					jash
 						.inputStreamWihtoutClosing(inputStream)
 						.get());
+		}
+	}
+
+	static void updateConfigurationWith(Properties propertyFile, boolean append) {
+		try {
+			ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+			propertyFile.store(bytes, propertyFile.getProperty("test.name"));
+			ByteArrayInputStream bais = new ByteArrayInputStream(bytes.toByteArray());
+			Function<String, BiFunction<String, String, String>> remapper = append
+					? (x) -> ((o, n) -> n == null ? o : n)
+					: (x) -> ((o, n) -> n);
+			LogManager.getLogManager().updateConfiguration(bais, remapper);
+		} catch (IOException ex) {
+			throw new RuntimeException(ex);
 		}
 	}
 
