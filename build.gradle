@@ -3,7 +3,7 @@ plugins {
 	id 'io.toolebox.git-versioner' version '1.6.7'
 	id 'com.diffplug.spotless' version '7.0.3'
 	id 'maven-publish'
-	id 'org.jreleaser' version '1.17.0'
+	id 'org.jreleaser' version '1.18.0'
 }
 
 group = 'dev.jbang'
