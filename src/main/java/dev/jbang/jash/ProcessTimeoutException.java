@@ -36,8 +36,8 @@ public class ProcessTimeoutException extends ProcessException {
 	}
 
 	private static String buildMessage(Duration timeout, Collection<String> args) {
-		return "Command " + args.stream().collect(Collectors.joining(" "))
-				+ " timeout after " + timeout.toString();
+		return "Command '" + args.stream().collect(Collectors.joining(" "))
+				+ "' timeout after " + timeout.toString();
 	}
 
 	public Duration getTimeout() {
