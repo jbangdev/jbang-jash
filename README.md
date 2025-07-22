@@ -45,9 +45,9 @@ Add the ![Maven Central Version](https://img.shields.io/maven-central/v/dev.jban
 
 ```xml
 <dependency>
-    <groupId>dev.jbang</groupId>
-    <artifactId>jash</artifactId>
-    <version>RELEASE</version>
+	<groupId>dev.jbang</groupId>
+	<artifactId>jash</artifactId>
+	<version>RELEASE</version>
 </dependency>
 ```
 </details>
@@ -57,7 +57,7 @@ Add the ![Maven Central Version](https://img.shields.io/maven-central/v/dev.jban
 
 ```groovy
 dependencies {
-    implementation 'dev.jbang:jash:RELEASE'
+	implementation 'dev.jbang:jash:RELEASE'
 }
 ```
 </details>
